@@ -1,6 +1,16 @@
+<a href='/#/shorten'>Shorten</a>
+<a href='/#/links'>Links</a>
 <div id='container'  ng-controller='ShortenController'>
-  <input type='text' ng-model='link'>
-  <button ng-click='addLink(link)'>Submit Link </button>
+  <form name="linkForm">
+    <input type='text' ng-model='link' name='theLink' ng-pattern='/^https?\:\/\/www\.\w+\.\w{2,}$/'>
+    <span ng-show="linkForm.theLink.$error.pattern">Not a Valid URL!</span>
+    <button ng-click='addLink(link)'>Submit Link </button>
+
+    <pre>
+      {{ link.$error }}
+    </pre>
+  </form>
 </div>
+
 
 
