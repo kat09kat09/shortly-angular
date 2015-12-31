@@ -22,6 +22,7 @@ var paths = {
 // with the new changes
 gulp.task('start', ['serve'],function () {
   bs({
+    open: false, 
     notify: true,
     // address for server,
     injectChanges: true,
