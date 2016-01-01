@@ -5,7 +5,6 @@
     <input type='text' ng-model='link' name='theLink' ng-pattern='/^https?\:\/\/www\.\w+\.\w{2,}$/'>
     <span ng-show="linkForm.theLink.$error.pattern">Not a Valid URL!</span>
     <button ng-click='addLink(link)'>Submit Link </button>
-
     <pre>
       {{ link.$error }}
     </pre>

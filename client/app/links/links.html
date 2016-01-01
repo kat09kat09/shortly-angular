@@ -1,8 +1,10 @@
 <a href='/#/shorten'>Shorten</a>
 <a href='/#/links'>Links</a>
 <div id='container' >
-  <ul ng-repeat='link in data.links'>
+  <input ng-model="query" placeholder="Filter by">
+  <ul ng-repeat="link in data.links | filter:{url :query} | orderBy: '-visits'">
     <a href='/api/links/{{ link.code }}'> {{link.url}}</a>
     <span>Visits: {{link.visits}}</span>
   </ul>
 </div>
+
