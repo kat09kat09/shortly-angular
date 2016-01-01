@@ -27,4 +27,20 @@ angular.module('shortly.auth', [])
         console.error(error);
       });
   };
+})
+
+.directive('validateUser', function(){
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function (scope, ele, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(value){
+        if(value) {
+          var valid = !/[^\w]+/.test(value); // invalid if not word character
+          ctrl.$setValidity('invalidCharacters', valid);
+        }
+        return valid ? value : undefined;
+      }); 
+    }
+  };
 });

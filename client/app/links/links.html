@@ -1,6 +1,6 @@
 <a href='/#/shorten'>Shorten</a>
 <a href='/#/links'>Links</a>
-<div id='container' ng-controller='LinksController'>
+<div id='container' >
   <ul ng-repeat='link in data.links'>
     <a href='/api/links/{{ link.code }}'> {{link.url}}</a>
     <span>Visits: {{link.visits}}</span>
